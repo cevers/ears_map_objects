@@ -1,0 +1,46 @@
+<!-- ******************* Definition of the environment trajectory used for EARS. ******************* 
+	Author: Christine Evers, c.evers@imperial.ac.uk
+	Changelog: 
+		2014-06-18 - v1.0 Baseline
+		2014-07-20 - v1.1 Updated structures to reflect that of Matlab map objects.
+		2014-08-07 - v1.2 Updated map object fields and documentation.
+-->
+
+<!-- Note on defining DTDs:
+	Inputs to elements can have the following properties:
+	+ for specifying that there must be one or more occurrences of the item — the effective content of each occurrence may be different;
+	* for specifying that any number (zero or more) of occurrences is allowed — the item is optional and the effective content of each occurrence may be different;
+	? for specifying that there must not be more than one occurrence — the item is optional;
+If there is no quantifier, the specified item must occur exactly one time at the specified state in the content of the element. 
+-->
+
+<!-- ***** DEFINE MAP *****
+	 Allow map to contain multiple mapObjects by using * -->
+<!ELEMENT map (mapObject*)>
+	<!ATTLIST map version CDATA #REQUIRED>
+	<!ATTLIST map date CDATA #REQUIRED>
+
+	<!-- ***** DEFINE UPDATE *****
+		Map objects are added to the XML file whenever an update (or prediction) becomes available. Each object is associated with a time stamp such that
+		the XML file can be parsed and the time trajectory extracted.
+		
+		Each mapObject is assigned a 
+	-->
+	
+	<!ELEMENT mapObject (type, ID, observationID, soundURL, isMoving, makesSound, reflectsSound, isVisible, position, covariance, initTime, updateTime)>
+		<!ATTLIST mapObject objectID ID #REQUIRED>
+		<!ELEMENT type (#PCDATA)>
+		<!ELEMENT ID (#PCDATA)>
+		<!ELEMENT observationID (#PCDATA)>
+		<!ELEMENT soundURL (#PCDATA)>
+		
+		<!ELEMENT isMoving (#PCDATA)>
+		<!ELEMENT makesSound (#PCDATA)>
+		<!ELEMENT reflectsSound (#PCDATA)>
+		<!ELEMENT isVisible (#PCDATA)>
+		
+		<!ELEMENT position (#PCDATA)>
+		<!ELEMENT covariance (#PCDATA)>
+				
+		<!ELEMENT initTime (#PCDATA)>
+		<!ELEMENT updateTime (#PCDATA)>		

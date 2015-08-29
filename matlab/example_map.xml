@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE map SYSTEM "map.dtd">
+<!-- Validate this file against DTD definition using the command xmllint -valid -dtdvalid map.dtd -noout example_map.xml -->
+<map version="1.0" date="2014-06-18 18:50:31">
+
+	<!-- Define current knowledge about NAO 
+		 Example defines Nao located at position [3 3 .8]m in the room. Uncertainties assumed as 0.2 m^2 in position .
+	-->
+	<mapObject objectID="NAO_0001">
+		<ID>0</ID>
+		<isMoving> 1 </isMoving>
+		<makesSound> 1 </makesSound>
+		<reflectsSound> 1 </reflectsSound>
+		<isVisible> 0 </isVisible>
+		<observationID> 1 </observationID>
+		<position> [3; 3; .8] </position>
+		<covariance> [0.2 0 0; 0 0.2 0; 0 0 0.2] </covariance>
+		<initTime> 0 </initTime>
+		<updateTime> 1 </updateTime>
+	</mapObject>
+		
+	<mapObject objectID="track_0001">
+		<!-- Define first point source -->
+		<ID> 1 </ID>
+		<observationID> 8 </observationID>
+		<isMoving> 1 </isMoving>
+		<makesSound> 1 </makesSound>
+		<reflectsSound> 0 </reflectsSound>
+		<isVisible> 1 </isVisible>
+		<position> [2.8; 2; 1.8]</position>
+		<covariance> [0.2 0 0; 0 0.1 0; 0 0 0.1]</covariance>
+		<initTime> 1 </initTime>
+		<updateTime> 1 </updateTime>
+	</mapObject>
+	
+	<mapObject objectID="NAO_0002">
+		<ID>0</ID>
+		<observationID> 2 </observationID>
+		<isMoving> 1 </isMoving>
+		<makesSound> 1 </makesSound>
+		<reflectsSound> 1 </reflectsSound>
+		<isVisible> 0 </isVisible>
+		<position> [3; 3; .8] </position>
+		<covariance> [0.2 0 0; 0 0.2 0; 0 0 0.2] </covariance>
+		<initTime> 0 </initTime>
+		<updateTime> 2 </updateTime>
+	</mapObject>
+
+	<mapObject objectID="track_0002">
+		<ID> 1 </ID>
+		<observationID> 10 </observationID>
+		<isMoving> 1 </isMoving>
+		<makesSound> 1 </makesSound>
+		<reflectsSound> 0 </reflectsSound>
+		<isVisible> 1 </isVisible>
+		<position> [3; 2; 1.8] </position>
+		<covariance> [0.2 0 0; 0 0.1 0; 0 0 0.1]</covariance>
+		<initTime> 1 </initTime>
+		<updateTime>2</updateTime>
+	</mapObject>
+</map>
