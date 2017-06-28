@@ -53,21 +53,19 @@ if obj.isBearingOnly && strcmp(obj.coordinateSystem, 'spherical'),
     % Plot vector that spans along the room:
     temp_range = 100;
     [x,y,z] = mysph2cart( obj.azimuth , obj.inclination, temp_range );
-    absolute_position = relative2absolute([x;y;z], reference_point, sensor_orientation);
+    absolute_position = relative2absolute([x;y;z], reference_point, sensor_orientation, iVec);
     absolute_position = [reference_point([iVec.x,iVec.y,iVec.z],1) absolute_position ];
     h_ref = line( absolute_position(iVec.x,:), absolute_position(iVec.y,:), absolute_position(iVec.z,:), 'marker', obj.marker );
 elseif ~obj.isBearingOnly && strcmp(obj.coordinateSystem, 'spherical'),
     % Compensate for reference position:
-    az = obj.azimuth + sensor_orientation;
-    [x,y,z] = mysph2cart(az, obj.inclination, obj.range);
-    cart_position([iVec.x,iVec.y,iVec.z],1) = [x,y,z].';    
-    cart_position = cart_position + reference_point([iVec.x;iVec.y;iVec.z]);
-    
+    [x,y,z] = mysph2cart( obj.azimuth, obj.inclination, obj.range );
+    absolute_position = relative2absolute([x;y;z], reference_point, sensor_orientation, iVec);
+
     % Plot point:
-    h_ref = plot3( cart_position(iVec.x), cart_position(iVec.y), cart_position(iVec.z), marker );
+    h_ref = plot3( absolute_position(iVec.x), absolute_position(iVec.y), absolute_position(iVec.z), marker );
 else
     cart_position([iVec.x,iVec.y,iVec.z],1) = [obj.x;obj.y;obj.z];    
-    cart_position_abs = relative2absolute(cart_position, reference_point, sensor_orientation);
+    cart_position_abs = relative2absolute(cart_position, reference_point, sensor_orientation, iVec);
 
     % Plot point:
     h_ref = plot3( cart_position_abs(iVec.x), cart_position_abs(iVec.y), cart_position_abs(iVec.z), marker );
