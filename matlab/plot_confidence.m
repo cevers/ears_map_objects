@@ -29,6 +29,7 @@ function [h_mean, h_conf] = plot_confidence( x, mean, cov, varargin)
 color = 'k';
 marker = '-x';
 FaceAlpha = 0.5;
+MarkerFaceColor = [1 1 1];
 
 axes_handle = gca;
 
@@ -44,7 +45,9 @@ if nargin > 2
     end;
 end
 FaceColor = color;
-EdgeColor = color;
+if ~exist('EdgeColor', 'var'),
+    EdgeColor = color;
+end;
 
 if size(x,1) == 1 && size(x,2) > 1,
     x = x';
@@ -67,8 +70,6 @@ end;
 
 %% Plot
 %
-% Plot mean:
-h_mean = plot( x, mean, marker, 'color', color );
 
 % Plot confidence interval:
 x_fill = [x; flipud(x)];
@@ -76,5 +77,9 @@ x_fill = [x; flipud(x)];
 cov_fill = [mean+cov; flipud(mean-cov)];
 
 h_conf = fill( x_fill, cov_fill, FaceColor, 'FaceAlpha', FaceAlpha, 'EdgeColor', EdgeColor, 'Parent', axes_handle);
+
+% Plot mean:
+h_mean = plot( x, mean, marker, 'color', color, 'MarkerFaceColor', MarkerFaceColor );
+
 
 return

@@ -28,15 +28,15 @@ classdef mapFeature <hgsetget
         vz
         orientation = 0
         velocity
+        
+        version = '1.0';
     end
     
     properties (SetAccess = private, GetAccess = private)
         map_markers = 'o';
         map_coordinateSystems = {'cartesian', 'spherical'};
         map_colours = [1 0 0];
-        
-        version = '1.0';
-        
+                
         iVec = vector_indices;
     end
         

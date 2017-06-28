@@ -15,8 +15,7 @@
 		<observationID> 1 </observationID>
 		<position> [3; 3; .8] </position>
 		<covariance> [0.2 0 0; 0 0.2 0; 0 0 0.2] </covariance>
-		<initTime> 0 </initTime>
-		<updateTime> 1 </updateTime>
+		<time> 1 </time>
 	</mapObject>
 		
 	<mapObject objectID="track_0001">
@@ -29,8 +28,7 @@
 		<isVisible> 1 </isVisible>
 		<position> [2.8; 2; 1.8]</position>
 		<covariance> [0.2 0 0; 0 0.1 0; 0 0 0.1]</covariance>
-		<initTime> 1 </initTime>
-		<updateTime> 1 </updateTime>
+		<time> 1 </time>
 	</mapObject>
 	
 	<mapObject objectID="NAO_0002">
@@ -42,8 +40,7 @@
 		<isVisible> 0 </isVisible>
 		<position> [3; 3; .8] </position>
 		<covariance> [0.2 0 0; 0 0.2 0; 0 0 0.2] </covariance>
-		<initTime> 0 </initTime>
-		<updateTime> 2 </updateTime>
+		<time> 2 </time>
 	</mapObject>
 
 	<mapObject objectID="track_0002">
@@ -55,7 +52,6 @@
 		<isVisible> 1 </isVisible>
 		<position> [3; 2; 1.8] </position>
 		<covariance> [0.2 0 0; 0 0.1 0; 0 0 0.1]</covariance>
-		<initTime> 1 </initTime>
-		<updateTime>2</updateTime>
+		<time>2</time>
 	</mapObject>
 </map>
