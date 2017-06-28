@@ -83,10 +83,6 @@ classdef mapTrajectory < hgsetget & visualize
         % Read mapFeature trajectory from XML file
         obj = read_XML( obj, filename );
         
-        %% Recording
-        %
-        % Write mapFeature trajectory to XML file
-        write_XML( obj, filename );
     end;
     
 end
