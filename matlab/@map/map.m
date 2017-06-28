@@ -74,6 +74,11 @@ classdef map < hgsetget
                 new_obj.NAO = obj.NAO;
             end;
         end
+        
+        %% Recording
+        %
+        % Write mapFeature trajectory to XML file
+        write_XML( obj, filename );
 
     end
 end
