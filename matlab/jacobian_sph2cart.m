@@ -1,8 +1,6 @@
-function jacobian = jacobian_sph2cart( az, incl, r )
+function jacobian = jacobian_sph2cart( az, incl, r, iVec )
 %jacobian_sph2cart Summary of this function goes here
 %   Detailed explanation goes here
-
-global iVec
 
 % Jacobian for conversion from spherical to Cartesian:
 % [ -r*sin(az)*sin(incl), r*cos(az)*cos(incl), cos(az)*sin(incl)]
@@ -62,7 +60,7 @@ jacobian(iVec.z,[iVec.r,iVec.az,iVec.incl]) = [ Jzr,  Jzaz,   Jzinc];
 % jacobian(iVec.vx,[iVec.r,iVec.az,iVec.incl]) = [ Jvxr,  Jvxaz,   Jvxinc];
 % jacobian(iVec.vy,[iVec.r,iVec.az,iVec.incl]) = [ Jvyr,  Jvyaz,   Jvyinc];
 % jacobian(iVec.vz,[iVec.r,iVec.az,iVec.incl]) = [ Jvzr,  Jvzaz,   Jvzinc];
-jacobian(iVec.velocity, [iVec.r,iVec.az,iVec.incl]) = zeros(1,3);
+jacobian(iVec.velocity, [iVec.r,iVec.az,iVec.incl]) = zeros(length(iVec.velocity),3);
 
 % 
 % [ cos(az)*sin(incl), -r*sin(az)*sin(incl), r*cos(az)*cos(incl)]
