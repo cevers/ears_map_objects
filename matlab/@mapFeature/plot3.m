@@ -19,12 +19,12 @@ marker = obj.marker;
 num_argin = length(varargin);
 if mod( num_argin, 2 ) ~= 0
     error('Invalid number of input arguments');
-end;
+end
 
-for arg_ind = 1 : 2 : num_argin,
+for arg_ind = 1 : 2 : num_argin
     % Assign variable value to variable name in this function workspace:
     assign( varargin{arg_ind}, varargin{arg_ind+1} );
-end;
+end
 
 %% Setup figure
 
@@ -43,20 +43,20 @@ else
     zlabel('Up, z [m]');
     
     title('Map plot')
-end;
+end
 
 %% Plot estimate source directions
 
 % If the object contains range & bearing, plot point. If this is a
 % bearing-only object, plot a line:
-if obj.isBearingOnly && strcmp(obj.coordinateSystem, 'spherical'),
+if obj.isBearingOnly && strcmp(obj.coordinateSystem, 'spherical')
     % Plot vector that spans along the room:
     temp_range = 100;
     [x,y,z] = mysph2cart( obj.azimuth , obj.inclination, temp_range );
     absolute_position = relative2absolute([x;y;z], reference_point, sensor_orientation, iVec);
     absolute_position = [reference_point([iVec.x,iVec.y,iVec.z],1) absolute_position ];
     h_ref = line( absolute_position(iVec.x,:), absolute_position(iVec.y,:), absolute_position(iVec.z,:), 'marker', obj.marker );
-elseif ~obj.isBearingOnly && strcmp(obj.coordinateSystem, 'spherical'),
+elseif ~obj.isBearingOnly && strcmp(obj.coordinateSystem, 'spherical')
     % Compensate for reference position:
     [x,y,z] = mysph2cart( obj.azimuth, obj.inclination, obj.range );
     absolute_position = relative2absolute([x;y;z], reference_point, sensor_orientation, iVec);
@@ -69,7 +69,7 @@ else
 
     % Plot point:
     h_ref = plot3( cart_position_abs(iVec.x), cart_position_abs(iVec.y), cart_position_abs(iVec.z), marker );
-end;
+end
 set(h_ref, 'Color', colour);
 
 end
